@@ -1,0 +1,30 @@
+<div style="background-color: grey; color: white ;" ng-controller="ftCtrl">
+  <h3 style="text-align: center">
+    THỨC ĂN
+    <strong style="color: rgb(184, 38, 38)"> NHANH - CHẤT - RẺ </strong>
+    HÂN HẠNH ĐƯỢC PHỤC VỤ QUÝ KHÁCH!!!
+  </h3>
+
+  <div class="row">
+    <div class="col-3" ng-repeat=" f in ftct">
+      <p>{{f}}</p>
+    </div>
+    <div class="col-2" ng-repeat=" s in ftspan">
+      <span>{{s}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-5">
+      <img src="./img/map.jpg" alt="" srcset="" width="300px" height="200px" />
+    </div>
+
+    <div class="col-6" style="display: flex; align-items: center; justify-content: center">
+      <div class="row">
+        <div class="col-3" ng-repeat="a in ft">
+          <img src="{{a}}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

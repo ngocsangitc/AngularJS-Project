@@ -1,0 +1,174 @@
+<!-- <div class="container-fluid p-0 my-2" ng-controller="cartCtrl">
+  <div class="modal fade" id="modelId" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 1000px" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Giỏ hàng</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            
+              <tr>
+                <th> Mã Số </th>
+                <th>Tên Sản Phẩm</th>
+                <th>Hình Ảnh</th>
+                <th>Số Lượng</th>
+                <th>Đơn Giá</th>
+                <th>Thành Tiền</th>
+                <th></th>
+              </tr>
+            
+              <tr ng-repeat="modal in $root.UserCart">
+                <td>{{modal.id}}</td>
+                <td>{{modal.name}}</td>
+                <td>
+                  <img ng-src="{{modal.img}}" width="auto" height="25%"  alt="" />
+                </td>
+                <td>
+                  <button class="btn btn-secondary" ng-click="revisionCart(false, modal)">-</button>
+                  {{modal.soLuong}}
+                  <button class="btn btn-secondary" ng-click="revisionCart(true, modal)">+</button>
+                </td>
+                <td>{{modal.price}}</td>
+                <td>{{modal.price * modal.soLuong}}</td>
+                <td>
+                  <button class="btn btn-danger"
+                    ng-click="deleteCart(modal)"
+                  >Delete</button>
+                </td>
+              </tr>
+            
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <table>
+  <tr>
+    <th>ID</th>
+    <th>name</th>
+    <th>Pho to </th>
+    <th>quantity</th>
+    <th>price</th>
+  </tr>
+  <tr ng-repeat="modal in $root.UserCart">
+    <td>{{modal.id}}</td>
+    <td>{{modal.name}}</td>
+    <td>
+      <img ng-src="{{modal.img}}" width="200px" height="200px"  alt="">
+    </td>
+    <td>{{modal.quantity}}</td>
+    <td>{{modal.price}}</td>
+  </tr>
+</table> -->
+
+<table ng-controller="cartCtrl">
+  <form action="">
+    <div class="form-row">
+    <thead>
+      <tr>
+        <div>
+          <th>
+            <div class="col-1">
+              <p>Mã Số </p>
+            </div>
+          </th>
+          <th>
+            <div class="col-3">
+              <p>Tên Hàng </p>
+            </div>
+          </th>
+          <th>
+            <div class="col-2">
+              <p>Hình Anh </p>
+            </div>
+          </th>
+          <th>
+            <div class="col-2">
+              <p>Số Lượng </p>
+            </div>
+          </th>
+
+          <th>
+            <div class="col-2">
+              <p> Đơn giá </p>
+            </div>
+          </th>
+          <th>
+            <div class="col-2">
+              <p> Thành Tiền  </p>
+            </div>
+          </th>
+          <th>
+
+          </th>
+        </div>
+      </tr>
+        
+    </thead>
+    <tbody>
+      <div>
+        <tr ng-repeat="modal in $root.UserCart">
+          <td>
+            <div class="col-1" >
+              <p>{{modal.id}} </p>
+            </div>
+          </td>
+          <td>
+            <div class="col-3" >
+              <p>{{modal.name}} </p>
+            </div>
+          </td>
+          <td>
+            <div class="col-2" >
+              <img ng-src="{{modal.img}}" width="200px" height="200px"  alt="">
+            </div>
+          </td>
+          <td>
+            <div class="col-2" >
+              <p id = "quantity">
+                <input type="number" id="input" min="0" ng-model = "modal.quantity">
+              </p>
+            </div>
+          </td>
+          <td>
+            <div class="col-2" >
+              <p id = "price">{{modal.price}} </p>
+            </div>
+          </td>
+          
+
+          <td>
+            <div class="col-2" >
+              <p id = "tprice">{{modal.totalPrice}}</p>
+            </div>
+          </td>
+          <td>
+            <button class="btn btn-primary" id="tinh"
+              ng-click="tinh(modal)"
+            >Tính</button>
+          </td>
+
+          <td>
+            <button class="btn btn-danger"
+              ng-click="deleteCart()"
+            >Delete</button>
+          </td>
+
+        </tr>
+      </div>
+
+    </tbody>
+
+
+      
+      
+    </div>
+  </form>
+</table>

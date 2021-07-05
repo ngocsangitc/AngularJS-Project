@@ -1,0 +1,113 @@
+<div class="container" ng-controller="myCtrl">
+  <!-- <div class="container" ng-controller="myCtrl"> -->
+  <div class="section" style="margin: 20px">
+    <!-- card lớn  -->
+    <section>
+      <div class="row" style="
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            
+          " ng-repeat="i in b | limitTo : 1 : skipB">
+        <div class="col-6" style="padding-left: 35px">
+          <h3>{{i.h3}}</h3>
+          <p style="font-size: 23px">{{i.contents}}</p>
+        </div>
+        <div class="col-6">
+          <img ng-src="{{i.image}}" alt="" width="520px" height="400px" style="
+                background-position: center center;
+                background-size: cover;
+              " />
+        </div>
+      </div>
+    </section>
+    <!-- <script ng-src="./html/formdangki.html"></script> -->
+    <!-- kết thúc card lớn  -->
+
+    <!-- các sản phẩm nhỏ nhỏ -->
+    <div class="row">
+      <div class="col-6" ng-repeat="m in section | orderBy : 'id' | limitTo: 6 : skipSection">
+        <div class="row">
+          <div class="col-6">
+            <img ng-src="{{m.img}}" alt="" width="250px" height="250px" style="
+                    border: 1px solid  rgb(97, 87, 87);
+                    background-position: center center;
+                    background-size: cover;
+                    margin-top: 5px;
+                    border-radius: 5px;
+                  " />
+          </div>
+          <div class="col-6" style="border: 1px solid rgb(97, 87, 87); margin-top: 5px; border-radius: 5px;">
+
+            <h5>{{m.name}}</h5>
+            <p><strong>Mã Số : {{m.id}}</strong></p>
+            <p>{{m.content}}</p>
+
+            <button ng-click="chitieta(m.id)" class="btn btn-primary" style="float: right" data-toggle="modal"
+              data-target="#myModal">
+              Chi Tiết
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+  <!--home-->
+
+
+
+
+
+  <!-- Chi Tiết Sản Phẩm  -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Chi Tiết Sản Phẩm </h4>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="card bg-light text-dark">
+            <div class="imgs">
+              <img ng-src="{{detaila.img}}" class="float-left" width="250px" height="250px" />
+              <p><strong>Mã Số :  {{detaila.id}}</strong></p>
+              <p><b>{{detaila.name}}</b></p>
+              <p>Giá bán : <i>{{detaila.price | number : 3}}</i></p>
+            </div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Close
+            </button>
+            <button ng-click="add(detaila)" class="btn btn-primary" style="float: right" data-toggle="modal"
+              data-target="#myModal">
+              <i class="fas fa-cart-arrow-down" style="font-size:20px"> Add To Cart </i>
+
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- </div> -->
+  <!-- container -->
+
+  <nav aria-label="Page navigation example" style="margin-left: 400px;">
+    <ul class="pagination">
+      <li class="page-item" ng-hide = "currentPage === 0"><a class="page-link" href="" ng-click="pagination(currentPage - 1)">Previous</a></li>
+      <li class="page-item" ng-repeat = "page in pageSize"><a class="page-link" ng-click="pagination($index)">{{page}}</a></li>
+      <li class="page-item" ng-hide = "currentPage === pageSize.length-1"><a class="page-link" href="" ng-click="pagination(currentPage + 1)">Next</a></li>
+    </ul>
+  </nav>
+</div>
